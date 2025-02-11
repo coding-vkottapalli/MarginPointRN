@@ -7,38 +7,20 @@ import HomeScreen from './screens/HomeScreen';
 import { LinearGradient } from 'expo-linear-gradient';
 import IssueScreen from './screens/IssueScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
+	const Stack = createNativeStackNavigator();
 	return (
 		<PaperProvider>
 			<NavigationContainer>
-				<LinearGradient
-					colors={['#4e0329', '#ddb52f']}
-					style={styles.container}
-				>
-					<ImageBackground
-						source={require('./assets/2025-02-11 15_32_08-750+ Tools Pictures _ Download Free Images on Unsplash.png')}
-						resizeMode='cover'
-						imageStyle={styles.imageStyle}
-						style={styles.container}
-					>
-						<HomeScreen />
-						<IssueScreen />
-					</ImageBackground>
-				</LinearGradient>
+				<Stack.Navigator>
+					<Stack.Screen name='Home' component={HomeScreen} />
+					<Stack.Screen name='Issue' component={IssueScreen} />
+				</Stack.Navigator>
 			</NavigationContainer>
 		</PaperProvider>
 	);
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-	imageStyle: {
-		flex: 1,
-		borderColor: 'green',
-		borderWidth: 2,
-		opacity: 0.35,
-	},
-});
+const styles = StyleSheet.create({});

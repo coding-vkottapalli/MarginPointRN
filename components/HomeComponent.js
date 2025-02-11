@@ -6,22 +6,22 @@ import {
 	StyleSheet,
 	StatusBar,
 	Pressable,
+	ImageBackground,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Avatar, Card, IconButton } from 'react-native-paper';
 
-function HomeComponent({ homeEntities }) {
+function HomeComponent({ homeEntities, handlePress }) {
 	//console.log(homeEntities);
-
-	function handlePress() {
-		console.log('on press');
+	function handlePress2() {
+		handlePress();
 	}
 	return (
 		<FlatList
 			data={homeEntities}
 			renderItem={({ item }) => (
-				<Pressable onPress={handlePress}>
+				<Pressable onPress={handlePress2}>
 					<View style={styles.cardStyle}>
 						<Text style={styles.textStyle}>{item}</Text>
 					</View>
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 		width: 550,
 		height: 200,
 		shadowColor: '#171717',
-		shadowOffset: { width: 0, height: 3 },
+		shadowOffset: { width: 10, height: 20 },
 		shadowOpacity: 0.4,
 		shadowRadius: 2,
 	},
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
 	textStyle: {
 		textAlign: 'center',
 		fontSize: 50,
-		fontWeight: '500',
+		fontWeight: '600',
+		color: 'black',
 	},
 });
 
