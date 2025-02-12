@@ -14,14 +14,15 @@ import { Avatar, Card, IconButton } from 'react-native-paper';
 
 function HomeComponent({ homeEntities, handlePress }) {
 	//console.log(homeEntities);
-	function handlePress2() {
-		handlePress();
+	function handlePress2(e) {
+		console.log(e.item);
+		handlePress(e.item);
 	}
 	return (
 		<FlatList
 			data={homeEntities}
 			renderItem={({ item }) => (
-				<Pressable onPress={handlePress2}>
+				<Pressable onPress={() => handlePress2({ item })}>
 					<View style={styles.cardStyle}>
 						<Text style={styles.textStyle}>{item}</Text>
 					</View>

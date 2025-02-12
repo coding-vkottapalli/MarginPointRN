@@ -8,9 +8,13 @@ const homeEntities = ['ISSUE', 'RETURN'];
 
 function HomeScreen(props) {
 	//console.log(props.navigation);
-	function handlePress() {
-		//console.log('on press');
-		props.navigation.navigate('Issue');
+	function handlePress(e) {
+		console.log(e);
+		if (e == 'ISSUE') {
+			props.navigation.navigate('Issue');
+		} else {
+			props.navigation.navigate('Return');
+		}
 	}
 
 	return (
